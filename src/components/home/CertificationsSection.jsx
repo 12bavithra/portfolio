@@ -30,35 +30,60 @@ function CertificationsSection() {
           <p className="cert-heading-note">A few things learned along the way.</p>
         </div>
         <ul className="cert-gallery">
-          {certifications.map((item) => (
-            <li className="cert-item" key={item.title}>
-              <button
-                type="button"
-                className="cert-preview cert-preview-button"
-                onClick={() => setActiveCertificate(item)}
-                aria-label={`Open certificate: ${item.title}`}
-              >
-                <img
-                  className="cert-preview-document"
-                  src={item.preview}
-                  alt={`${item.title} certificate`}
-                />
-              </button>
-              <div className="cert-caption">
-                <p className="cert-title">{item.title}</p>
-                <p className="cert-meta">
-                  {[item.issuer, item.date].filter(Boolean).join(' · ')}
-                </p>
-                <button
-                  type="button"
-                  className="cert-open"
-                  onClick={() => setActiveCertificate(item)}
-                >
-                  View certificate <span aria-hidden="true">↗</span>
-                </button>
-              </div>
-            </li>
-          ))}
+          {certifications.map((item) => {
+            const preview = item.previewType === 'pdf' ? (
+              <iframe
+                className="cert-preview-document"
+                src={`${item.preview}#toolbar=0&navpanes=0&scrollbar=0`}
+                title={`${item.title} certificate preview`}
+                tabIndex="-1"
+              />
+            ) : (
+              <img
+                className="cert-preview-document"
+                src={item.preview}
+                alt={`${item.title} certificate`}
+              />
+            )
+
+            return (
+              <li className="cert-item" key={item.title}>
+                {item.openInNewTab ? (
+                  <a
+                    className="cert-preview cert-preview-link"
+                    href={item.file}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Open original certificate in a new tab: ${item.title}`}
+                  >
+                    {preview}
+                  </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="cert-preview cert-preview-button"
+                    onClick={() => setActiveCertificate(item)}
+                    aria-label={`Open certificate: ${item.title}`}
+                  >
+                    {preview}
+                  </button>
+                )}
+                <div className="cert-caption">
+                  <p className="cert-title">{item.title}</p>
+                  <p className="cert-meta">
+                    {[item.issuer, item.date].filter(Boolean).join(' · ')}
+                  </p>
+                  <button
+                    type="button"
+                    className="cert-open"
+                    onClick={() => setActiveCertificate(item)}
+                  >
+                    View certificate <span aria-hidden="true">↗</span>
+                  </button>
+                </div>
+              </li>
+            )
+          })}
         </ul>
       </div>
 
@@ -84,12 +109,20 @@ function CertificationsSection() {
               <h3>{activeCertificate.title}</h3>
             </div>
             <div className="cert-modal-frame">
-              <embed
-                className="cert-modal-document"
-                src={activeCertificate.file}
-                type="application/pdf"
-                title={activeCertificate.title}
-              />
+              {activeCertificate.format === 'image' ? (
+                <img
+                  className="cert-modal-document"
+                  src={activeCertificate.file}
+                  alt={`${activeCertificate.title} certificate`}
+                />
+              ) : (
+                <embed
+                  className="cert-modal-document"
+                  src={activeCertificate.file}
+                  type="application/pdf"
+                  title={activeCertificate.title}
+                />
+              )}
             </div>
           </div>
         </div>

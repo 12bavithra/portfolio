@@ -1,3 +1,5 @@
+import aiDocumentImage from '../assets/ai_document.png'
+
 export const projects = [
   {
     id: 'medshare',
@@ -9,11 +11,14 @@ export const projects = [
     figmaUrl: 'https://www.figma.com/proto/RPd3QmbhZXBSp2O4fHUd7r/Medshare?node-id=62-3&p=f&t=sZyz25E9MgBQ337k-1&scaling=min-zoom&content-scaling=fixed&page-id=20%3A3',
     subtitle: 'Medicine Donation Platform',
     category: 'Software / Web',
+    summary: 'Designed the recipient experience in Figma and built a web platform connecting medicine donors with people in need.',
+    testingSummary: 'QA: Playwright browser checks for registration, login, search, validation, navigation & role access; one recorded run: 26 passed, 0 failed, 0 skipped. Intermittent HTTP 503 logged in Jira (KAN-6).',
     stack: ['HTML', 'CSS', 'JavaScript', 'Node.js', 'Express.js', 'MongoDB'],
     description: [
       'Built a full-stack platform with three user roles — donor, recipient, admin — using Express.js and MongoDB.',
       'Added JWT authentication with bcrypt password hashing, role-based access control, and 17 REST endpoints across 3 MongoDB collections (User, Medicine, MedicineRequest).',
       'Built an admin approval workflow that sends automatic email updates to donors and recipients.',
+      'Tested registration, login, medicine search, form validation, navigation, and role-based access using Playwright browser automation. One recorded execution: 26 passed, 0 failed, 0 skipped. Documented an intermittent HTTP 503 error in Jira (KAN-6).',
     ],
     featured: true,
   },
@@ -26,11 +31,14 @@ export const projects = [
     githubUrl: 'https://github.com/12bavithra/electricity-monitoring',
     subtitle: '',
     category: 'Data / Analytics',
+    summary: 'Flags unusual household power days from daily usage patterns.',
+    testingSummary: 'QA: Tested CSV uploads, data validation, charts & anomaly alerts; 15 test cases, all PASS.',
     stack: ['Python', 'Pandas', 'Scikit-learn', 'Power BI'],
     description: [
       'Resampled minute-level household power data into 1,442 daily usage records using pandas.',
       'Applied Isolation Forest to flag unusual consumption days without labeled data, and cross-checked results against a statistical threshold, finding 98.3% agreement.',
       'Built a Streamlit app to visualize anomalies and a Power BI dashboard to show usage trends.',
+      'Tested CSV uploads, data validation, charts, and anomaly alerts; executed 15 test cases, all PASS.',
     ],
     featured: false,
   },
@@ -42,11 +50,31 @@ export const projects = [
     githubUrl: 'https://github.com/12bavithra/ConsentSync',
     subtitle: 'Privacy Policy Analyzer',
     category: 'Software / Web',
+    summary: 'Checks privacy policies, cookies and site permissions in one place.',
+    testingSummary: 'QA: Functional and UI testing across modules; 17 test cases documented, all PASS.',
     stack: ['HTML', 'CSS', 'JavaScript', 'Chrome Extension APIs'],
     description: [
       'Built a Manifest V3 Chrome extension using a background service worker and content scripts to check privacy policies, cookies, and site permissions.',
       'Tracked cookies in real time using Chrome’s cookies API, and read camera, microphone, and location permission status using the contentSettings API.',
       'Scored each site 0–100 using a rule-based keyword system that checks policy text, permissions, cookies, and connection security, with multilingual support.',
+      'Performed functional and UI testing across modules; documented 17 test cases, all PASS.',
+    ],
+    featured: false,
+  },
+  {
+    id: 'ai-document-research-intelligence',
+    title: 'AI Document & Research Intelligence',
+    image: aiDocumentImage,
+    demoUrl: 'https://cognify-document-intelligence.streamlit.app/',
+    showDemoOnCard: true,
+    subtitle: 'AI-powered Document Assistant',
+    category: 'Software / AI',
+    summary: 'Upload PDFs and ask questions about their content with an AI-powered document assistant.',
+    stack: ['Python', 'Streamlit', 'RAG', 'LLM', 'Groq API', 'Tavily API'],
+    description: [
+      'Developed an AI-powered document assistant that allows users to upload PDFs and ask questions about their content.',
+      'Uses RAG-based document retrieval for contextual AI-generated responses and external web research using the Tavily API.',
+      'Provides Document Only, External Research, and Combined Research modes.',
     ],
     featured: false,
   },

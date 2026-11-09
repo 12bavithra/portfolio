@@ -51,6 +51,24 @@ function AboutSection() {
               <span className="about-focus-description">Creating clean and intuitive digital experiences.</span>
             </span>
           </li>
+          <li className="about-focus-item">
+            <span className="about-focus-visual about-focus-visual--testing" aria-hidden="true">
+              <span className="about-focus-shape" />
+            </span>
+            <span className="about-focus-copy">
+              <span className="about-focus-text">Software Testing &amp; QA</span>
+              <span className="about-focus-description">Testing applications to ensure quality and reliability.</span>
+            </span>
+          </li>
+          <li className="about-focus-item">
+            <span className="about-focus-visual about-focus-visual--ai" aria-hidden="true">
+              <span className="about-focus-shape" />
+            </span>
+            <span className="about-focus-copy">
+              <span className="about-focus-text">AI &amp; Generative AI</span>
+              <span className="about-focus-description">Exploring intelligent solutions through AI-powered applications.</span>
+            </span>
+          </li>
         </ul>
       </div>
     </section>

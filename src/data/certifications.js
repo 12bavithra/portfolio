@@ -41,4 +41,22 @@ export const certifications = [
     issuer: '',
     date: 'May 2026',
   },
+  {
+    title: 'API Testing with Katalon',
+    file: '/images/katalon_api.jpg',
+    preview: '/images/katalon_api.jpg',
+    issuer: 'Katalon',
+    date: 'October 25, 2026',
+    format: 'image',
+    openInNewTab: true,
+  },
+  {
+    title: 'Data Analytics – Deloitte',
+    file: '/images/data%20analysis_deloitte.pdf',
+    preview: '/images/data%20analysis_deloitte.pdf',
+    issuer: '',
+    date: '',
+    previewType: 'pdf',
+    openInNewTab: true,
+  },
 ]

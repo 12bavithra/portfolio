@@ -20,7 +20,11 @@ function Project({ projectId, onNavigate }) {
         </button>
         <div className="project-detail">
           <div className="project-detail-visual">
-            <img src={project.image} alt={`${project.title} screenshot`} />
+            {project.image ? (
+              <img src={project.image} alt={`${project.title} screenshot`} />
+            ) : (
+              <span className="project-visual-placeholder">{project.title}</span>
+            )}
           </div>
           <div className="project-detail-copy">
             <p className="kicker">{project.category}</p>
@@ -36,7 +40,11 @@ function Project({ projectId, onNavigate }) {
             <p className="project-detail-stack">{project.stack.join(' · ')}</p>
             <div className="project-detail-links">
               {project.demoUrl ? (
-                <a href={project.demoUrl} target="_blank" rel="noreferrer">
+                <a
+                  href={project.demoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Live Demo
                 </a>
               ) : null}

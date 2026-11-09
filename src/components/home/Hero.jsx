@@ -8,7 +8,9 @@ function Hero({ onNavigate }) {
           {site.education[0].title} · {site.education[0].years}
         </p>
         <h1 id="hero-statement" className="display hero-statement">
-          {site.statement}
+          <span>Curiosity leads.</span>{' '}
+          <span>Creativity shapes.</span>{' '}
+          <span>Technology brings it to life.</span>
         </h1>
         <p className="lede hero-summary">{site.heroLead}</p>
         <div className="hero-actions">

@@ -1,8 +1,8 @@
 export const site = {
   name: 'Bavithra B',
   wordmark: 'Bavithra B',
-  statement: 'I build software and work with data.',
-  heroLead: 'Exploring software, data, and digital experiences through projects.',
+  statement: 'Curiosity leads. Creativity shapes. Technology brings it to life.',
+  heroLead: 'Exploring ideas and turning them into thoughtful digital experiences through software, data, AI, testing, and design.',
   summary:
     'B.Tech Information Technology graduate with hands-on experience in programming, application development, and data analysis through academic projects and an internship.',
   location: 'Madurai, Tamil Nadu',

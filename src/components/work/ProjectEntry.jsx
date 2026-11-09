@@ -1,9 +1,3 @@
-const projectHighlights = {
-  medshare: 'Designed the recipient experience in Figma and built a web platform connecting medicine donors with people in need.',
-  'electricity-usage-anomaly-detector': 'Flags unusual household power days from daily usage patterns.',
-  consentsync: 'Checks privacy policies, cookies and site permissions in one place.',
-}
-
 function ProjectEntry({ project, featured, onNavigate }) {
   const className = featured
     ? 'project-entry project-entry--featured'
@@ -24,8 +18,14 @@ function ProjectEntry({ project, featured, onNavigate }) {
       }}
     >
       <div className={`project-visual project-visual--${project.id}`} aria-hidden="true">
-        <img src={project.image} alt="" loading={featured ? 'eager' : 'lazy'} />
-        <span className="project-image-index">{project.number}</span>
+        {project.image ? (
+          <img src={project.image} alt="" loading={featured ? 'eager' : 'lazy'} />
+        ) : (
+          <span className="project-visual-placeholder">{project.title}</span>
+        )}
+        {project.number ? (
+          <span className="project-image-index">{project.number}</span>
+        ) : null}
       </div>
       <div className="project-details">
         <div className="project-heading">
@@ -53,9 +53,24 @@ function ProjectEntry({ project, featured, onNavigate }) {
                 View Figma Prototype ↗
               </a>
             ) : null}
+            {project.showDemoOnCard && project.demoUrl ? (
+              <a
+                className="project-explore project-figma-link"
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(event) => event.stopPropagation()}
+                onKeyDown={(event) => event.stopPropagation()}
+              >
+                Live Demo ↗
+              </a>
+            ) : null}
           </div>
         </div>
-        <p className="project-copy">{projectHighlights[project.id]}</p>
+        <p className="project-copy">{project.summary}</p>
+        {project.testingSummary ? (
+          <p className="project-testing">{project.testingSummary}</p>
+        ) : null}
         <ul className="project-stack" aria-label="Technologies">
           {project.stack.map((technology) => (
             <li key={technology}>{technology}</li>

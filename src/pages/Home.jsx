@@ -11,7 +11,7 @@ import '../styles/home.css'
 
 function Home({ onNavigate }) {
   return (
-    <div>
+    <div className="home-page">
       <Hero onNavigate={onNavigate} />
       <FeaturedProjects onNavigate={onNavigate} />
       <PublicationsSection />

@@ -52,6 +52,11 @@
   object-fit: contain;
 }
 
+.project-detail-visual .project-visual-placeholder {
+  max-width: 16ch;
+  font-size: clamp(1.6rem, 4vw, 3rem);
+}
+
 .project-detail-copy .page-intro {
   margin-top: 0.8rem;
 }
@@ -90,6 +95,19 @@
   text-decoration: none;
   text-transform: uppercase;
   transition: color var(--ease), background var(--ease);
+}
+
+.project-detail-demo-name {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.65rem 1.1rem;
+  border: 1px solid var(--forest);
+  color: var(--forest);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .project-detail-links a:hover {
